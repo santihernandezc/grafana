@@ -28,6 +28,7 @@ import {
 } from '@grafana/data';
 import { PrometheusDatasource } from '../datasource';
 import { PrometheusMetricsBrowser } from './PrometheusMetricsBrowser';
+import MonacoQueryField from './monaco-query-field/MonacoQueryField';
 
 export const RECORDING_RULES_GROUP = '__recording_rules__';
 
@@ -281,6 +282,15 @@ class PromQueryField extends React.PureComponent<PromQueryFieldProps, PromQueryF
 
     return (
       <>
+        <div
+          style={{
+            height: '200px',
+            border: '1px solid silver',
+            padding: '20px',
+          }}
+        >
+          <MonacoQueryField languageProvider={languageProvider} history={this.props.history} />
+        </div>
         <div
           className="gf-form-inline gf-form-inline--xs-view-flex-column flex-grow-1"
           data-testid={this.props['data-testid']}
